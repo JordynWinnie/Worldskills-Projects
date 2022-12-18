@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CoronaXamarinApp.RecordTemperature">
+    <ContentPage.Content>
+        <StackLayout Margin="20,10,20,0">
+            <Label Text="Contact Tracing" FontSize="Medium"></Label>
+            <Label Text="Floor number"></Label>
+            <Picker x:Name="floorNumber_picker" SelectedIndexChanged="floorNumber_picker_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:Int16}">
+                        <x:Int16>1</x:Int16>
+                        <x:Int16>2</x:Int16>
+                        <x:Int16>3</x:Int16>
+                        <x:Int16>4</x:Int16>
+                        <x:Int16>5</x:Int16>
+                        <x:Int16>6</x:Int16>
+                        <x:Int16>7</x:Int16>
+                        <x:Int16>8</x:Int16>
+                        <x:Int16>9</x:Int16>
+                        <x:Int16>10</x:Int16>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Label Text="Room Number"></Label>
+            <Picker x:Name="roomNumber_Picker" SelectedIndexChanged="roomNumber_Picker_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:Int16}">
+                        <x:Int16>1</x:Int16>
+                        <x:Int16>2</x:Int16>
+                        <x:Int16>3</x:Int16>
+                        <x:Int16>4</x:Int16>
+                        <x:Int16>5</x:Int16>
+                        <x:Int16>6</x:Int16>
+                        <x:Int16>7</x:Int16>
+                        <x:Int16>8</x:Int16>
+                        <x:Int16>9</x:Int16>
+                        <x:Int16>10</x:Int16>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Label Text="Temperature"></Label>
+            <Entry Placeholder="Temperature (°C)" x:Name="temperature_Entry"></Entry>
+            <Label x:Name="location_Label"></Label>
+            <Button Text="Record Temperature" x:Name="Record_Temp_Btn" Clicked="Record_Temp_Btn_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
