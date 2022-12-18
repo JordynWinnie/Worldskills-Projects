@@ -1,0 +1,83 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Sort By:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/tierRadioBtn"
+            android:text="Tier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false" />
+        <RadioButton
+            android:id="@+id/nameRadioBtn"
+            android:text="Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <RadioButton
+            android:id="@+id/valueRadioBtn"
+            android:text="Value (ASC)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <RadioButton
+            android:id="@+id/availableQtyRadioBtn"
+            android:text="Quantity (DEC)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RadioGroup>/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <TextView
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:text="Tier"
+            android:layout_weight="25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:text="Name"
+            android:layout_weight="25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:text="Value ($)"
+            android:layout_weight="25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    
+        <TextView
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:text="Available Qty"
+            android:layout_weight="25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>/>
+
+    <ListView
+        android:layout_weight="50"
+        android:id="@+id/viewPackagesLV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    
+
+</LinearLayout>

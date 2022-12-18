@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
+    <LinearLayout
+        android:layout_weight="50"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/assetLine1"
+            android:text="line1"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/assetLine2"
+            android:text="line2"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/assetLine3"
+            android:text="line3"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"/>
+    </LinearLayout>/>
+
+    <LinearLayout
+        android:layout_weight="70"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_weight="33"
+            android:id="@+id/editBtn"
+            android:text="E"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"/>
+        <Button
+            android:layout_weight="33"
+            android:id="@+id/moveBtn"
+            android:text="M"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"/>
+        <Button
+            android:layout_weight="33"
+            android:id="@+id/historyBtn"
+            android:text="H"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"/>
+    </LinearLayout>/>
+</LinearLayout>

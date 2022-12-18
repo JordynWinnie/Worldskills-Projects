@@ -1,0 +1,110 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <TextView
+        android:text="Update Sponsorship Bookings"
+        android:textAlignment="center"
+        android:textSize="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <TextView
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:text="Tier"
+            android:layout_weight="25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:text="Name"
+            android:layout_weight="25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:text="Quantity Booked"
+            android:layout_weight="25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    
+        <TextView
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:text="Individual Value"
+            android:layout_weight="25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>/>
+    <ListView
+        android:id="@+id/updateSponsorshipbookingLV"
+        android:layout_weight="60"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:padding="4dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <TextView
+            android:layout_weight="50"
+            android:text="Total ($)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/totalCostTV"
+            android:layout_weight="50"
+            android:text="TotalCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>/>
+
+    <TextView
+        android:id="@+id/selectedAPackageTV"
+        android:padding="8dp"
+        android:text="Select a package"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <TextView
+            android:layout_weight="33"
+            android:text="New Quantity:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/quantityUpdateBookingET"
+            android:layout_weight="33"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/updateQuantityBookingBtn"
+            android:text="Update Quantity"
+            android:layout_weight="33"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>/>
+
+    <Button
+        android:id="@+id/deleteQuantityBtn"
+        android:text="Delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

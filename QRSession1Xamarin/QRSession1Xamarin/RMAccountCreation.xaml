@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QRSession1Xamarin.RMAccountCreation">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="New Account Creation" FontSize="Medium"></Label>
+            
+            <Label Text="Username:"></Label>
+            <Entry Placeholder="Username" x:Name="Username_Entry"></Entry>
+            
+            <Label Text="UserID (For Login):"></Label>
+            <Entry Placeholder="UserID (Min 8 Characters)" x:Name="UserID_Entry"></Entry>
+            
+            <Label Text="Password:"></Label>
+            <Entry Placeholder="Password" IsPassword="True" x:Name="Password_Entry"></Entry>
+            
+            <Label Text="Re-Enter Password:"></Label>
+            <Entry Placeholder="Re-Enter Password" IsPassword="True" x:Name="ReEnterPassword_Entry"></Entry>
+            
+            <Label Text="User Type:"></Label>
+            <Picker x:Name="UserType_Picker">
+                
+            </Picker>
+
+            <Button Text="Create_Account" x:Name="Create_Account_Btn" Clicked="Create_Account_Btn_Clicked"></Button>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

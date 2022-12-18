@@ -1,0 +1,1 @@
+# WSC2019Kazan_S6_05272022-Windows-NetFramework

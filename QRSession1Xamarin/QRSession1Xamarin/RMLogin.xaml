@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QRSession1Xamarin.RMLogin">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Resource Manager Login" FontSize="Large"></Label>
+            <Label Text="User ID:"></Label>
+            <Entry Placeholder="UserID" x:Name="UserID_Entry"></Entry>
+            <Label Text="Password"></Label>
+            <Entry Placeholder="Password" x:Name="Password_Entry" IsPassword="True"></Entry>
+            <Button x:Name="Login_Btn" Clicked="Login_Btn_Clicked" Text="Login"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QRSession1Xamarin.AddResource">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Add New Resource"></Label>
+            <Label Text="Resource Name"></Label>
+            <Entry Placeholder="Resource Name" x:Name="Resource_Name_Entry"></Entry>
+            <Label Text="Resource Type"></Label>
+            <Picker x:Name="Resouce_Type_Picker">
+                <Picker.Items>
+                    <x:String>Furniture</x:String>
+                    <x:String>Hardware</x:String>
+                    <x:String>Refreshment</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label Text="Available Quantity"></Label>
+            <Entry Placeholder="Quantity" x:Name="Quantity_Entry"></Entry>
+            <Label Text="Allocated Skills"></Label>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="Cyber Security"></Label>
+                <CheckBox x:Name="CyberSec_Cb" Grid.Column="1"></CheckBox>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="Software Solutions"></Label>
+                <CheckBox x:Name="SoftwareSln_Cb" Grid.Column="1"></CheckBox>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="Networking"></Label>
+                <CheckBox x:Name="Networking_Cb" Grid.Column="1"></CheckBox>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="Web Tech"></Label>
+                <CheckBox x:Name="WebTech_Cb" Grid.Column="1"></CheckBox>
+            </Grid>
+            <Button Text="Add Resource" x:Name="Add_Resource_Btn" Clicked="Add_Resource_Btn_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

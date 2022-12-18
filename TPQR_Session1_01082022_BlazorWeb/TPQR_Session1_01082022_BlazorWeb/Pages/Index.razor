@@ -1,0 +1,19 @@
+﻿@page "/"
+@inject NavigationManager navManager
+<div>
+    <button @onclick="GoToCreate">Create new Account</button>
+    <button @onclick="GoToResourceManagementLogin">Resource Manager Login</button>
+    
+</div>
+
+@code {
+    void GoToCreate()
+    {
+        navManager.NavigateTo("newAccount");
+    }
+
+    void GoToResourceManagementLogin()
+    {
+        navManager.NavigateTo("login");
+    }
+}

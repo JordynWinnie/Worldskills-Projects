@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:id="@+id/departmentSpinnerAssetCat"
+        />
+
+         <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:id="@+id/assetGroupSpinnerAssetCat"
+        />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Warranty Date Range"
+        android:paddingTop="16dp"
+        android:textStyle="bold"
+        android:textSize="16dp"
+    />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Start Date"
+            android:id="@+id/startDateEditTextAssetCat"
+            android:layout_weight="50"
+        />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="End Date"
+            android:id="@+id/endtDateEditTextAssetCat"
+            android:layout_weight="50"
+        />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/searchEditTextAssetCat"
+        android:paddingTop="16dp"
+        android:hint="@string/abc_search_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    android:text="Asset List:"/>
+
+    <ListView
+        android:id="@+id/assetListAssetCat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="50"
+    />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    
+        <TextView
+            android:id="@+id/assetCountTextViewAssetCat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AssetCount"
+            android:layout_weight="50"
+        />
+
+        <Button
+            android:id="@+id/addAssetButtonAssetCat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="Add"
+        />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,114 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:textSize="24dp"
+        android:gravity="center"
+        android:text="Add New Resource"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+     <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="16dp"
+            android:gravity="left|center"
+            android:layout_weight="50"
+            android:text="Resource Name:"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <EditText
+            android:id="@+id/resourceNameEditTxtAddNew"
+            android:layout_weight="50"
+            android:hint="Resource Name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="16dp"
+            android:gravity="left|center"
+            android:layout_weight="50"
+            android:text="Resource Type:"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <Spinner
+            android:id="@+id/resourceTypeSpinnerAddNew"
+            android:layout_weight="50"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="16dp"
+            android:gravity="left|center"
+            android:layout_weight="50"
+            android:text="Available Quantity:"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <EditText
+           android:id="@+id/resourceQuantityEditTxtAddNew"
+            android:layout_weight="50"
+            android:hint="Quantity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="16dp"
+            android:gravity="left"
+            android:layout_weight="50"
+            android:text="Resource Type:"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <LinearLayout
+            android:layout_weight="50"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+         <CheckBox
+            android:id="@+id/cyberSecCheckBox"
+            android:text="Cyber Security"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+            <CheckBox
+                android:id="@+id/softwareSolutionsSecCheckBox"
+            android:text="Software Solutions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+            <CheckBox
+                android:id="@+id/networkingCheckBox"
+            android:text="Networking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+            <CheckBox
+                android:id="@+id/webTechCheckBox"
+            android:text="Web Technologies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        </LinearLayout>/>
+    </LinearLayout>/>
+   
+    <Button
+        android:id="@+id/addResourceButton"
+        android:text="Add Resource"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

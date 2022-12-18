@@ -1,0 +1,206 @@
+﻿@page "/resourceManagement"
+@using Microsoft.EntityFrameworkCore;
+@inject NavigationManager navManager
+@inject LoginState loginState
+<h3>ResourceManagement</h3>
+
+<div>
+    <label>Filter By Type:</label>
+    <select @bind="FurnitureType">
+        @foreach (var furnitureType in typeList)
+        {
+            <option value="@furnitureType">@furnitureType</option>
+        }
+    </select>
+
+    <br />
+
+    <label>Filter By Skill:</label>
+    <select @bind="SkillType">
+        @foreach (var skill in skillList)
+        {
+            <option value="@skill">@skill</option>
+        }
+    </select>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>No Of Skills</th>
+                <th>Allocated Skills</th>
+                <th>Available Quantity</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (randomObjects.Count != 0)
+            {
+                @foreach (var item in randomObjects)
+                {
+
+                    if (@item["AvailQty"] == "Not Available")
+                    {
+                        <tr style="background: red; color: white">
+                            <td>@item["Name"]</td>
+                            <td>@item["ResType"]</td>
+                            <td>@item["NoOfSkills"]</td>
+                            <td>@item["Allocated"]</td>
+                            <td>@item["AvailQty"]</td>
+                            <td><button @onclick='() => {navManager.NavigateTo($"/updateResource/{item["id"]}"); }'>Update</button></td>
+                            <td><button @onclick='() => { DeleteListing(item["id"]); }'>Delete</button></td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>@item["Name"]</td>
+                            <td>@item["ResType"]</td>
+                            <td>@item["NoOfSkills"]</td>
+                            <td>@item["Allocated"]</td>
+                            <td>@item["AvailQty"]</td>
+                            <td><button @onclick='() => {navManager.NavigateTo($"/updateResource/{item["id"]}"); }'>Update</button></td>
+                            <td><button @onclick='() => { DeleteListing(item["id"]); }'>Delete</button></td>
+                        </tr>
+                    }
+
+                }
+            }
+        </tbody>
+    </table>
+
+    <button class="align-self-end" @onclick='() => { navManager.NavigateTo("addNewResource"); }'>Add Resource</button>
+</div>
+
+
+@code {
+
+    public List<Dictionary<string, string>> randomObjects { get; set; } = new List<Dictionary<string, string>>();
+
+    private string _furnitureType;
+
+    public string FurnitureType
+    {
+        get { return _furnitureType; }
+        set
+        {
+            _furnitureType = value;
+            RefreshList();
+        }
+    }
+
+
+    private string _skillType;
+
+    public string SkillType
+    {
+        get { return _skillType; }
+        set { _skillType = value; RefreshList(); }
+    }
+
+    public List<string> skillList = new List<string>();
+    public List<string> typeList = new List<string>();
+
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        if (!loginState.IsLoggedIn)
+        {
+            navManager.NavigateTo("login/notLoggedIn", true);
+        }
+
+        using (var context = new Session1Context())
+        {
+            skillList.Add("None");
+            skillList.AddRange(context.Skills.Select(x => x.SkillName));
+
+            typeList.Add("None");
+            typeList.AddRange(context.ResourceTypes.Select(x => x.ResTypeName));
+        }
+
+        FurnitureType = "None";
+        SkillType = "None";
+    }
+
+    public void DeleteListing(string id)
+    {
+        var resId = int.Parse(id);
+
+        using (var context = new Session1Context())
+        {
+            var resource = context.Resources.Where(x => x.ResId == resId).Include(x => x.ResourceAllocations).FirstOrDefault();
+
+            foreach (var item in resource.ResourceAllocations.ToList())
+            {
+                context.ResourceAllocations.Remove(item);
+            }
+
+            context.Resources.Remove(resource);
+
+            context.SaveChanges();
+            navManager.NavigateTo("/resourceManagement", true);
+        }
+    }
+
+
+
+    public void RefreshList()
+    {
+        randomObjects.Clear();
+
+
+        if (FurnitureType == string.Empty || SkillType == string.Empty)
+        {
+            return;
+        }
+
+        using (var context = new Session1Context())
+        {
+            var allocs = context.Resources
+                .Include(x => x.ResourceAllocations)
+                .ThenInclude(x => x.SkillIdFkNavigation)
+                .Include(x => x.ResTypeIdFkNavigation)
+                .ToList();
+
+            if (FurnitureType != "None")
+            {
+                allocs = allocs.Where(x => x.ResTypeIdFkNavigation.ResTypeName == FurnitureType).ToList();
+            }
+
+            if (SkillType != "None")
+            {
+                allocs = allocs.Where(x => x.ResourceAllocations.Select(x => x.SkillIdFkNavigation.SkillName).Contains(SkillType)).ToList();
+            }
+
+            foreach (var item in allocs)
+            {
+                var rowInfo = new Dictionary<string, string>();
+                rowInfo["Name"] = item.ResName;
+                rowInfo["ResType"] = item.ResTypeIdFkNavigation.ResTypeName;
+                rowInfo["NoOfSkills"] = item.ResourceAllocations.Count.ToString();
+                rowInfo["Allocated"] = string.Join(", ", item.ResourceAllocations.Select(x => x.SkillIdFkNavigation.SkillName));
+
+                if (item.RemainingQuantity > 0 && item.RemainingQuantity < 5)
+                {
+                    rowInfo["AvailQty"] = "Low Stock";
+                }
+                else if (item.RemainingQuantity >= 5)
+                {
+                    rowInfo["AvailQty"] = "Sufficient";
+                }
+                else
+                {
+                    rowInfo["AvailQty"] = "Not Available";
+                }
+
+                rowInfo["id"] = item.ResId.ToString();
+                randomObjects.Add(rowInfo);
+            }
+        }
+
+    }
+}

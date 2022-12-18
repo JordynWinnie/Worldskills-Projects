@@ -1,0 +1,76 @@
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/imgView"
+        android:layout_alignParentLeft="true"
+        />
+
+
+    <TextView
+        android:text="AssetName"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imgView"
+        android:id="@+id/firstName" />
+
+    <TextView
+        android:text="Department"
+        
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imgView"
+        android:layout_below = "@id/firstName"
+        android:id="@+id/middleName" />
+    <TextView
+        android:text="AssetSN"
+        
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imgView"
+        android:layout_below = "@id/middleName"
+        android:id="@+id/lastName" />
+    <FrameLayout
+        android:paddingTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/frameLayout1"
+        android:layout_toRightOf="@id/lastName">
+        <ImageButton
+            android:src="@drawable/edit"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="left"
+            android:id="@+id/editImageBtn"
+            android:scaleType="centerCrop"/>
+        <ImageButton
+            android:src="@drawable/move"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:id="@+id/moveImageBtn"
+            android:scaleType="centerCrop"
+             />
+        <ImageButton
+            android:src="@drawable/history"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:id="@+id/listBtn"
+            android:scaleType="centerCrop" />
+
+
+
+    </FrameLayout>
+
+
+
+</RelativeLayout>

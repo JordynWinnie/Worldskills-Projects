@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QRSession1Xamarin.ResourceManagement">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Resource Management"></Label>
+            <Label Text="Filter By Type:"></Label>
+            <Picker x:Name="Type_Picker"></Picker>
+            <Label Text="Filter By Skill:"></Label>
+            <Picker x:Name="Skill_Picker"></Picker>
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Text="Add" x:Name="Add_Btn" Clicked="Add_Btn_Clicked"></Button>
+                <Button Text="Update" Grid.Column="1"></Button>
+                <Button Text="Delete" Grid.Column="2"></Button>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

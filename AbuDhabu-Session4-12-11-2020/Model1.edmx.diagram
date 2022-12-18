@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d2c32f0aa0944aecbcaa2c67f349f0db" Name="Diagram1">
+        <EntityTypeShape EntityType="Session4Model.AnswerTable" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Session4Model.CabinType" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Session4Model.RatingTable" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Session4Model.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Session4Model.FK_AnswerTable_CabinType" ManuallyRouted="false" />
+        <AssociationConnector Association="Session4Model.FK_AnswerTable_RatingTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Session4Model.FK_AnswerTable_RatingTable1" ManuallyRouted="false" />
+        <AssociationConnector Association="Session4Model.FK_AnswerTable_RatingTable2" ManuallyRouted="false" />
+        <AssociationConnector Association="Session4Model.FK_AnswerTable_RatingTable3" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

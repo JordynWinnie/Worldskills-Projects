@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QRSession1Xamarin.MainPage">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label Text="ASEAN Skils 2020 26 - 28 Jul 2020" FontSize="Large"></Label>
+
+        <Button Text="Create New Account" x:Name="Create_Btn" Clicked="Create_Btn_Clicked"></Button>
+        <Button Text="Resource Manager Login" x:Name="Resource_Login_Btn" Clicked="Resource_Login_Btn_Clicked"></Button>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,88 @@
+﻿@page "/newAccount"
+@using System.ComponentModel.DataAnnotations;
+@inject NavigationManager navManager
+<h3>NewAccountCreation</h3>
+
+<EditForm Model="@currentUser" OnValidSubmit="@onSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <p>@errorMessages</p>
+    <label>Username: </label>
+    <InputText @bind-Value="currentUser.UserName" />
+
+    <br />
+
+    <label>User ID: </label>
+    <InputText @bind-Value="currentUser.UserId" />
+
+    <br />
+
+    <label>Password: </label>
+    <InputText type="password"  @bind-Value="currentUser.UserPw" />
+
+    <br />
+
+    <label>Confirm Password: </label>
+    <InputText type="password" @bind-Value="currentUser.ConfirmPw" />
+
+
+    <select @bind="currentUser.UserTypeIdFk">
+        @foreach (var item in userTypes)
+        {
+            <option value="@item.UserTypeId">@item.UserTypeName</option>
+        }
+    </select>
+    <button type="submit">Submit</button>
+</EditForm>
+
+
+@code {
+
+    private class ExtendedUser: User
+    {
+        [Required]
+        [Compare(nameof(UserPw), ErrorMessage = "Passwords do not match")]
+        public string ConfirmPw { get; set; }
+    }
+
+    private string confirmPw;
+    private ExtendedUser currentUser;
+    private List<UserType> userTypes;
+    private string errorMessages = "";
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        currentUser = new ExtendedUser();
+
+
+        using (var context = new Session1Context())
+        {
+            userTypes = context.UserTypes.ToList();
+        }
+
+        currentUser.UserTypeIdFk = 1;
+    }
+
+    private void onSubmit(EditContext editContext)
+    {
+        errorMessages = string.Empty;
+        using (var context = new Session1Context())
+        {
+            if (context.Users.Where(x=>x.UserId == currentUser.UserId).Any())
+            {
+                errorMessages = "User Id has been taken";
+                return;
+            }
+
+            context.Users.Add(currentUser);
+            context.SaveChanges();
+            currentUser = new ExtendedUser();
+
+            navManager.NavigateTo("/", true);
+        }
+
+
+
+    }
+}
+

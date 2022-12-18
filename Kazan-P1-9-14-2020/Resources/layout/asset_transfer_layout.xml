@@ -1,0 +1,138 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:padding="8dp"
+        android:text="Selected Asset"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="50"
+            android:text="Asset Name:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+             android:layout_weight="50"
+            android:text="Current Department:"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"/>
+    </LinearLayout>/>
+     <LinearLayout
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:orientation="horizontal"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/assetNameLabel"
+            android:layout_weight="50"
+            android:text="AssetNameLbl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/currentDepartmentLabel"
+             android:layout_weight="50"
+            android:text="CurrentDepartmentLbl"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"/>
+    </LinearLayout>/>
+    <TextView
+            android:text="Asset SN:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/currentAssetSN"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="AssetSN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:padding="8dp"
+        android:text="Destination Department"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        
+        android:orientation="horizontal"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="50"
+            android:text="Destination Department:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+             android:layout_weight="50"
+            android:text="Destination Location:"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"/>
+    </LinearLayout>/>
+
+
+    <LinearLayout
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:orientation="horizontal"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+        <Spinner
+            android:id="@+id/destinationDepartmentSpinner"
+            android:layout_weight="50"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Spinner
+            android:id="@+id/destinationLocationSpinner"
+             android:layout_weight="50"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"/>
+    </LinearLayout>/>
+
+    <TextView
+            android:text="New Asset SN:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/newAssetSN"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="AssetSN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/moveAssetSubmitBtn"
+            android:text="Submit"
+            android:layout_weight="50"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+         <Button
+             android:id="@+id/moveAssetCancelBtn"
+            android:text="Cancel"
+            android:layout_weight="50"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>>
+        
+</LinearLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+       >
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/departmentSpinner"
+            android:layout_weight="50"
+            />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/assetGroupSpinner"
+            android:layout_weight="50"
+            />
+    </LinearLayout>/>
+
+    <TextView
+        android:id="@+id/dateLbl"
+        android:paddingTop="16dp"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+        android:text="Warranty Date Range:"
+        android:textStyle="bold"
+        android:textSize="16dp"
+    />
+
+    <LinearLayout
+        android:paddingTop="4dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:focusable="false"
+            android:id="@+id/startDateDtp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Start Date"
+            android:layout_weight="50"/>
+        <EditText
+            android:focusable="false"
+            android:id="@+id/endDateDtp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="End Date"
+            android:layout_weight="50"/>
+    </LinearLayout>/>
+
+    <EditText
+        android:id="@+id/searchBoxEditText"
+        android:hint="Search..."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="Asset List:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ListView
+        android:id="@+id/assetListView"
+        android:layout_weight="70"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="50"
+            android:id="@+id/assetNumberTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/addAssetBtn"
+            android:layout_weight="50"
+            android:text="+"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>/>
+</LinearLayout>

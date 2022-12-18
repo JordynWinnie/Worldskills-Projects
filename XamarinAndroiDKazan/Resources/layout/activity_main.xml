@@ -1,0 +1,82 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <Spinner
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/departmentSpinner"
+    />  
+    <Spinner
+        
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/assetGroupSpinner"
+        android:layout_toRightOf="@id/departmentSpinner"
+    />
+
+    <EditText
+        android:layout_width="150dp"
+        android:focusable="false"
+        android:hint="Start Date"
+        android:layout_height="wrap_content"
+        android:id="@+id/startDate"
+        android:layout_below="@id/departmentSpinner"
+    />
+
+    <EditText
+        android:layout_width="150dp"
+        android:focusable="false"
+        android:hint="End Date"
+        android:layout_height="wrap_content"
+        android:id="@+id/endDate"
+        android:layout_below="@id/departmentSpinner"
+        android:layout_toRightOf="@id/startDate"
+    />
+    
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchField"
+        android:layout_below="@id/startDate"
+        android:hint="Search..."
+    />
+
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_below="@id/searchField"
+        android:id="@+id/listView1"
+        
+    />
+
+    <TextView
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/listView1"
+    android:text="Loading Asset Information..."
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentBottom="true"
+    android:id="@+id/txtAssetInfo"
+        
+     />
+       
+    <Button
+        android:id="@+id/addNewAssetBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:layout_below="@id/listView1"
+        android:layout_alignParentRight="true"
+       />
+
+    
+     
+    
+    
+</RelativeLayout>

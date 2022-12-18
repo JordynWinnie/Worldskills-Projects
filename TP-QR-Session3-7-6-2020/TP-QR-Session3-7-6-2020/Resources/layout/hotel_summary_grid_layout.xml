@@ -1,0 +1,30 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/countryTextViewGrid"
+        android:text="Country"
+        android:textAlignment="center"
+        android:layout_weight="33"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/singleRmTextViewGrid"
+        android:text="SingleRooms"
+        android:textAlignment="center"
+        android:layout_weight="33"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/doubleRmTextViewGrid"
+        android:text="DoubleRooms"
+        android:textAlignment="center"
+        android:layout_weight="33"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+       
+     <TextView
+        android:textAlignment="center"
+        android:text="New Country Representative Account Creation"
+        android:textSize="16dp"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"/>
+     <LinearLayout
+        android:paddingTop="8dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <TextView
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="Country:"
+            android:layout_weight="50"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <Spinner
+            android:id="@+id/countrySpinnerAccountCreate"
+            android:layout_weight="50"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>/>
+     <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <TextView
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="User ID (For login):"
+            android:layout_weight="50"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <EditText
+            android:id="@+id/userIDEditTextAccountCreate"
+            android:hint="User ID (Min. 8 Char)"
+            android:layout_weight="50"
+            android:layout_width="match_parent"
+            android:layout_height="50.5dp"/>
+    </LinearLayout>/>
+
+     <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <TextView
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="Password:"
+            android:layout_weight="50"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <EditText
+            android:id="@+id/passwordEditTextAccountCreate"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:layout_weight="50"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>/>
+     <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <TextView
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="Re-Enter Password:"
+            android:layout_weight="50"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <EditText
+            android:id="@+id/repasswordEditTextAccountCreate"
+            android:hint="Re-enter password"
+            android:inputType="textPassword"
+            android:layout_weight="50"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>/>
+
+    <Button
+        android:id="@+id/createAccountBtnAccountCreate"
+        android:text="Create Account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

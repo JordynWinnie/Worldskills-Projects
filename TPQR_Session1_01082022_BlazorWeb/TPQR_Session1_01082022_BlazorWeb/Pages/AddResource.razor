@@ -1,0 +1,128 @@
+﻿@*// @page "/addNewResource"*@
+
+@page "/addNewResource/"
+@inject NavigationManager navManager
+@inject LoginState loginState
+<h3>Add Resource</h3>
+
+<p style="color: red">@_errorMessage</p>
+
+<label>Resource Name: </label>
+<input placeholder="Resource Name" @bind="resource.ResName" />
+<br />
+
+<label>Resource Type: </label>
+<select @bind="resource.ResTypeIdFk">
+    @foreach (var resourceID in _resourceTypes)
+    {
+        <option value="@resourceID.ResTypeId">@resourceID.ResTypeName</option>
+    }
+</select>
+<br />
+
+<label>Available Quantity:</label>
+<input type="number" @bind="resource.RemainingQuantity" />
+
+<br />
+<label>Allocated Skills:</label>
+<br />
+@foreach (var skill in _skillListCheckbox)
+{
+    <input type="checkbox" @bind="_skillListCheckbox[skill.Key]" />
+    @skill.Key.SkillName
+    <br />
+}
+
+@if (success)
+{
+    <p style="color: green">Added Resource Successfully</p>
+}
+
+<button @onclick="Submit">Add Resource</button>
+
+
+@code {
+
+    public bool success { get; set; } = false;
+
+    private Resource resource = new Resource();
+
+    private List<ResourceType> _resourceTypes = new List<ResourceType>();
+
+    private Dictionary<Skill, bool> _skillListCheckbox = new Dictionary<Skill, bool>();
+
+    private string _errorMessage = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        if (!loginState.IsLoggedIn)
+        {
+            navManager.NavigateTo("/login/notLoggedIn");
+        }
+        using (var context = new Session1Context())
+        {
+            _resourceTypes = context.ResourceTypes.ToList();
+            resource.ResTypeIdFk = _resourceTypes[0].ResTypeId;
+
+            foreach (var skill in context.Skills)
+            {
+                _skillListCheckbox.Add(skill, false);
+            }
+        }
+    }
+
+    private void Submit()
+    {
+        _errorMessage = string.Empty;
+        success = false;
+        if (string.IsNullOrEmpty(resource.ResName))
+        {
+            _errorMessage = "Please enter resource name";
+            return;
+        }
+
+        if (resource.RemainingQuantity == 0 && _skillListCheckbox.Count(x => x.Value == true) > 0)
+        {
+            _errorMessage = "You may not allocate to any skills with 0 quantity";
+            return;
+        }
+
+        using (var context = new Session1Context())
+        {
+            if (context.Resources.Where(x => x.ResName.Equals(resource.ResName)).Any())
+            {
+                _errorMessage = "That resource name has already been taken, please try another";
+                return;
+            }
+
+            context.Resources.Add(resource);
+            context.SaveChanges();
+
+            foreach (var skill in _skillListCheckbox)
+            {
+                if (skill.Value)
+                {
+                    var resourceAlloc = new ResourceAllocation()
+                    {
+                        SkillIdFk = skill.Key.SkillId,
+                        ResIdFk = resource.ResId
+                    };
+                    context.ResourceAllocations.Add(resourceAlloc);
+                }
+
+            }
+
+            context.SaveChanges();
+            success = true;
+
+            foreach (var skill in _skillListCheckbox.Keys.ToList())
+            {
+                _skillListCheckbox[skill] = false;
+            }
+
+            resource = new Resource();
+            resource.ResTypeIdFk = _resourceTypes[0].ResTypeId;
+        }
+    }
+}

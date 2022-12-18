@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileApp", "MobileApp.csproj", "{883E32C6-65BF-4A7F-A5B3-32643BF2FFF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "..\WebApi\WebApi.csproj", "{ADD9D76C-0CB1-4F72-9BDE-83D4460CDD2F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{883E32C6-65BF-4A7F-A5B3-32643BF2FFF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{883E32C6-65BF-4A7F-A5B3-32643BF2FFF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{883E32C6-65BF-4A7F-A5B3-32643BF2FFF7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{883E32C6-65BF-4A7F-A5B3-32643BF2FFF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{883E32C6-65BF-4A7F-A5B3-32643BF2FFF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{883E32C6-65BF-4A7F-A5B3-32643BF2FFF7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{ADD9D76C-0CB1-4F72-9BDE-83D4460CDD2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADD9D76C-0CB1-4F72-9BDE-83D4460CDD2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADD9D76C-0CB1-4F72-9BDE-83D4460CDD2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADD9D76C-0CB1-4F72-9BDE-83D4460CDD2F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC8D31AE-FE6F-452A-AEA0-CF2E503ECB03}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Session5Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Competition">
+          <Key>
+            <PropertyRef Name="competitionId" />
+          </Key>
+          <Property Name="competitionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="skillIdFK" Type="int" Nullable="false" />
+          <Property Name="sessionNo" Type="int" Nullable="false" />
+          <Property Name="q1MaxMarks" Type="int" Nullable="false" />
+          <Property Name="q2MaxMarks" Type="int" Nullable="false" />
+          <Property Name="q3MaxMarks" Type="int" Nullable="false" />
+          <Property Name="q4MaxMarks" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Competitor">
+          <Key>
+            <PropertyRef Name="recordsId" />
+          </Key>
+          <Property Name="recordsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="competitorId" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="skillIdFK" Type="int" Nullable="false" />
+          <Property Name="competitorName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="competitorCountry" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="assignedSeat" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Results">
+          <Key>
+            <PropertyRef Name="resultsId" />
+          </Key>
+          <Property Name="resultsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="competitionIdFK" Type="int" Nullable="false" />
+          <Property Name="recordsIdFK" Type="int" Nullable="false" />
+          <Property Name="q1Marks" Type="float" Nullable="false" />
+          <Property Name="q2Marks" Type="float" Nullable="false" />
+          <Property Name="q3Marks" Type="float" Nullable="false" />
+          <Property Name="q4Marks" Type="float" Nullable="false" />
+          <Property Name="totalMarks" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="skillId" />
+          </Key>
+          <Property Name="skillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="skillName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="noOfCompetitors" Type="int" Nullable="false" />
+          <Property Name="expectedMedianMark" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="passwd" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Competition_Skill">
+          <End Role="Skill" Type="Self.Skill" Multiplicity="1" />
+          <End Role="Competition" Type="Self.Competition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="skillId" />
+            </Principal>
+            <Dependent Role="Competition">
+              <PropertyRef Name="skillIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Competitor_Skill">
+          <End Role="Skill" Type="Self.Skill" Multiplicity="1" />
+          <End Role="Competitor" Type="Self.Competitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="skillId" />
+            </Principal>
+            <Dependent Role="Competitor">
+              <PropertyRef Name="skillIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Results_Competition">
+          <End Role="Competition" Type="Self.Competition" Multiplicity="1" />
+          <End Role="Results" Type="Self.Results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="competitionId" />
+            </Principal>
+            <Dependent Role="Results">
+              <PropertyRef Name="competitionIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Results_Competitor">
+          <End Role="Competitor" Type="Self.Competitor" Multiplicity="1" />
+          <End Role="Results" Type="Self.Results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competitor">
+              <PropertyRef Name="recordsId" />
+            </Principal>
+            <Dependent Role="Results">
+              <PropertyRef Name="recordsIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Session5ModelStoreContainer">
+          <EntitySet Name="Competition" EntityType="Self.Competition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Competitor" EntityType="Self.Competitor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Results" EntityType="Self.Results" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Competition_Skill" Association="Self.FK_Competition_Skill">
+            <End Role="Skill" EntitySet="Skill" />
+            <End Role="Competition" EntitySet="Competition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Competitor_Skill" Association="Self.FK_Competitor_Skill">
+            <End Role="Skill" EntitySet="Skill" />
+            <End Role="Competitor" EntitySet="Competitor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Results_Competition" Association="Self.FK_Results_Competition">
+            <End Role="Competition" EntitySet="Competition" />
+            <End Role="Results" EntitySet="Results" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Results_Competitor" Association="Self.FK_Results_Competitor">
+            <End Role="Competitor" EntitySet="Competitor" />
+            <End Role="Results" EntitySet="Results" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Session5Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Competition">
+          <Key>
+            <PropertyRef Name="competitionId" />
+          </Key>
+          <Property Name="competitionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="skillIdFK" Type="Int32" Nullable="false" />
+          <Property Name="sessionNo" Type="Int32" Nullable="false" />
+          <Property Name="q1MaxMarks" Type="Int32" Nullable="false" />
+          <Property Name="q2MaxMarks" Type="Int32" Nullable="false" />
+          <Property Name="q3MaxMarks" Type="Int32" Nullable="false" />
+          <Property Name="q4MaxMarks" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Skill" Relationship="Self.FK_Competition_Skill" FromRole="Competition" ToRole="Skill" />
+          <NavigationProperty Name="Results" Relationship="Self.FK_Results_Competition" FromRole="Competition" ToRole="Results" />
+        </EntityType>
+        <EntityType Name="Competitor">
+          <Key>
+            <PropertyRef Name="recordsId" />
+          </Key>
+          <Property Name="recordsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="competitorId" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="skillIdFK" Type="Int32" Nullable="false" />
+          <Property Name="competitorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="competitorCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="assignedSeat" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Skill" Relationship="Self.FK_Competitor_Skill" FromRole="Competitor" ToRole="Skill" />
+          <NavigationProperty Name="Results" Relationship="Self.FK_Results_Competitor" FromRole="Competitor" ToRole="Results" />
+        </EntityType>
+        <EntityType Name="Result">
+          <Key>
+            <PropertyRef Name="resultsId" />
+          </Key>
+          <Property Name="resultsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="competitionIdFK" Type="Int32" Nullable="false" />
+          <Property Name="recordsIdFK" Type="Int32" Nullable="false" />
+          <Property Name="q1Marks" Type="Double" Nullable="false" />
+          <Property Name="q2Marks" Type="Double" Nullable="false" />
+          <Property Name="q3Marks" Type="Double" Nullable="false" />
+          <Property Name="q4Marks" Type="Double" Nullable="false" />
+          <Property Name="totalMarks" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Competition" Relationship="Self.FK_Results_Competition" FromRole="Results" ToRole="Competition" />
+          <NavigationProperty Name="Competitor" Relationship="Self.FK_Results_Competitor" FromRole="Results" ToRole="Competitor" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="skillId" />
+          </Key>
+          <Property Name="skillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="skillName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="noOfCompetitors" Type="Int32" Nullable="false" />
+          <Property Name="expectedMedianMark" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Competitions" Relationship="Self.FK_Competition_Skill" FromRole="Skill" ToRole="Competition" />
+          <NavigationProperty Name="Competitors" Relationship="Self.FK_Competitor_Skill" FromRole="Skill" ToRole="Competitor" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="passwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Competition_Skill">
+          <End Role="Skill" Type="Self.Skill" Multiplicity="1" />
+          <End Role="Competition" Type="Self.Competition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="skillId" />
+            </Principal>
+            <Dependent Role="Competition">
+              <PropertyRef Name="skillIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Results_Competition">
+          <End Role="Competition" Type="Self.Competition" Multiplicity="1" />
+          <End Role="Results" Type="Self.Result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="competitionId" />
+            </Principal>
+            <Dependent Role="Results">
+              <PropertyRef Name="competitionIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Competitor_Skill">
+          <End Role="Skill" Type="Self.Skill" Multiplicity="1" />
+          <End Role="Competitor" Type="Self.Competitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="skillId" />
+            </Principal>
+            <Dependent Role="Competitor">
+              <PropertyRef Name="skillIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Results_Competitor">
+          <End Role="Competitor" Type="Self.Competitor" Multiplicity="1" />
+          <End Role="Results" Type="Self.Result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competitor">
+              <PropertyRef Name="recordsId" />
+            </Principal>
+            <Dependent Role="Results">
+              <PropertyRef Name="recordsIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Session5Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Competitions" EntityType="Self.Competition" />
+          <EntitySet Name="Competitors" EntityType="Self.Competitor" />
+          <EntitySet Name="Results" EntityType="Self.Result" />
+          <EntitySet Name="Skills" EntityType="Self.Skill" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Competition_Skill" Association="Self.FK_Competition_Skill">
+            <End Role="Skill" EntitySet="Skills" />
+            <End Role="Competition" EntitySet="Competitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Results_Competition" Association="Self.FK_Results_Competition">
+            <End Role="Competition" EntitySet="Competitions" />
+            <End Role="Results" EntitySet="Results" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Competitor_Skill" Association="Self.FK_Competitor_Skill">
+            <End Role="Skill" EntitySet="Skills" />
+            <End Role="Competitor" EntitySet="Competitors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Results_Competitor" Association="Self.FK_Results_Competitor">
+            <End Role="Competitor" EntitySet="Competitors" />
+            <End Role="Results" EntitySet="Results" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Session5ModelStoreContainer" CdmEntityContainer="Session5Entities">
+          <EntitySetMapping Name="Competitions">
+            <EntityTypeMapping TypeName="Session5Model.Competition">
+              <MappingFragment StoreEntitySet="Competition">
+                <ScalarProperty Name="competitionId" ColumnName="competitionId" />
+                <ScalarProperty Name="skillIdFK" ColumnName="skillIdFK" />
+                <ScalarProperty Name="sessionNo" ColumnName="sessionNo" />
+                <ScalarProperty Name="q1MaxMarks" ColumnName="q1MaxMarks" />
+                <ScalarProperty Name="q2MaxMarks" ColumnName="q2MaxMarks" />
+                <ScalarProperty Name="q3MaxMarks" ColumnName="q3MaxMarks" />
+                <ScalarProperty Name="q4MaxMarks" ColumnName="q4MaxMarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Competitors">
+            <EntityTypeMapping TypeName="Session5Model.Competitor">
+              <MappingFragment StoreEntitySet="Competitor">
+                <ScalarProperty Name="recordsId" ColumnName="recordsId" />
+                <ScalarProperty Name="competitorId" ColumnName="competitorId" />
+                <ScalarProperty Name="skillIdFK" ColumnName="skillIdFK" />
+                <ScalarProperty Name="competitorName" ColumnName="competitorName" />
+                <ScalarProperty Name="competitorCountry" ColumnName="competitorCountry" />
+                <ScalarProperty Name="assignedSeat" ColumnName="assignedSeat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Results">
+            <EntityTypeMapping TypeName="Session5Model.Result">
+              <MappingFragment StoreEntitySet="Results">
+                <ScalarProperty Name="resultsId" ColumnName="resultsId" />
+                <ScalarProperty Name="competitionIdFK" ColumnName="competitionIdFK" />
+                <ScalarProperty Name="recordsIdFK" ColumnName="recordsIdFK" />
+                <ScalarProperty Name="q1Marks" ColumnName="q1Marks" />
+                <ScalarProperty Name="q2Marks" ColumnName="q2Marks" />
+                <ScalarProperty Name="q3Marks" ColumnName="q3Marks" />
+                <ScalarProperty Name="q4Marks" ColumnName="q4Marks" />
+                <ScalarProperty Name="totalMarks" ColumnName="totalMarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skills">
+            <EntityTypeMapping TypeName="Session5Model.Skill">
+              <MappingFragment StoreEntitySet="Skill">
+                <ScalarProperty Name="skillId" ColumnName="skillId" />
+                <ScalarProperty Name="skillName" ColumnName="skillName" />
+                <ScalarProperty Name="noOfCompetitors" ColumnName="noOfCompetitors" />
+                <ScalarProperty Name="expectedMedianMark" ColumnName="expectedMedianMark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Session5Model.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="passwd" ColumnName="passwd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

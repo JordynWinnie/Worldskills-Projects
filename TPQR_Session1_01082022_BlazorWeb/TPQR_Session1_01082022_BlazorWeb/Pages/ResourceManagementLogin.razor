@@ -1,0 +1,61 @@
+﻿@page "/login"
+@page "/login/notLoggedIn"
+@inject NavigationManager navManager;
+@inject LoginState loginState
+<h3>Resource Management Login</h3>
+
+<p style="color:red">@_errorMessage</p>
+
+<label>User ID:</label>
+
+<input @bind="UserId" required />
+
+<br />
+
+<label>Password:</label>
+
+<input @bind="Password" required type="password" />
+
+<br />
+<button @onclick="Login">Login</button>
+
+@code {
+
+    public string UserId { get; set; }
+    public string Password { get; set; }
+    public string _errorMessage { get; set; }
+
+    protected override void OnInitialized()
+    {
+        if (navManager.Uri.Contains("notLoggedIn"))
+        {
+            _errorMessage = "Please log in to access sensitive information";
+        }
+
+        base.OnInitialized();
+    }
+    void Login()
+    {
+        using (var context = new Session1Context())
+        {
+            _errorMessage = string.Empty;
+            var user = context.Users.Where(x => x.UserId == UserId && x.UserPw == Password).FirstOrDefault();
+            if (user == null)
+            {
+                _errorMessage = "User name or password is wrong";
+                return;
+            }
+            else
+            {
+                if (user.UserTypeIdFk != 1)
+                {
+                    _errorMessage = "Admins may not log in";
+                    return;
+                }
+
+                navManager.NavigateTo("resourceManagement");
+                loginState.IsLoggedIn = true;
+            }
+        }
+    }
+}

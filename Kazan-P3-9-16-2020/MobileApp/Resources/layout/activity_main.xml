@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Active Date:"
+            android:layout_weight="50"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/activeDateMainEditText"
+            android:layout_weight="50"
+            android:text="ActiveDate"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"/>
+    </LinearLayout>/>
+
+    <ListView
+        android:id="@+id/taskListView"
+        android:layout_weight="70"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/addButton"
+        android:text="Add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Spinner
+            android:id="@+id/assetNameSpinner"
+            android:layout_weight="33"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"/>
+        <Spinner
+            android:id="@+id/taskSpinner"
+            android:layout_weight="33"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/clearButton"
+            android:text="Clear"
+            android:layout_weight="33"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"/>
+    </LinearLayout>/>
+</LinearLayout>

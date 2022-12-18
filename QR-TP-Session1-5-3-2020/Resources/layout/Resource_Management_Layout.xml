@@ -1,0 +1,63 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:textSize="24dp"
+        android:gravity="center"
+        android:text="Resource Management"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+     <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="16dp"
+            android:gravity="left|center"
+            android:layout_weight="50"
+            android:text="Filter By Type:"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <Spinner
+            android:id="@+id/resourceTypeSpinnerRM"
+            android:layout_weight="50"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>/> 
+        
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="16dp"
+            android:gravity="left|center"
+            android:layout_weight="50"
+            android:text="Filter By Skill:"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <Spinner
+            android:id="@+id/skillTypeSpinnerRM"
+            android:layout_weight="50"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>/>
+
+    <ListView
+        android:layout_weight="70"
+        android:id="@+id/resourceManagementLV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/addButtonResourceManagement"
+        android:text="Add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    
+</LinearLayout>

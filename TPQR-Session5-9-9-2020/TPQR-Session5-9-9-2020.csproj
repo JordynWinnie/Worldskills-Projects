@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9A40B86A-A8AC-45CF-8C05-57A8BEBE024E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TPQR_Session5_9_9_2020</RootNamespace>
+    <AssemblyName>TPQR-Session5-9-9-2020</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminMainMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminMainMenuForm.Designer.cs">
+      <DependentUpon>AdminMainMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnalyseResultsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnalyseResultsForm.Designer.cs">
+      <DependentUpon>AnalyseResultsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssignSeating.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssignSeating.Designer.cs">
+      <DependentUpon>AssignSeating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalculateBonusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalculateBonusForm.Designer.cs">
+      <DependentUpon>CalculateBonusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Competition.cs">
+      <DependentUpon>Session5Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Competitor.cs">
+      <DependentUpon>Session5Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EnterMarksForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnterMarksForm.Designer.cs">
+      <DependentUpon>EnterMarksForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.cs">
+      <DependentUpon>Session5Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Session5Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Session5Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Session5Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Session5Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Session5Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Session5Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Skill.cs">
+      <DependentUpon>Session5Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>Session5Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewResultsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewResultsForm.Designer.cs">
+      <DependentUpon>ViewResultsForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdminMainMenuForm.resx">
+      <DependentUpon>AdminMainMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnalyseResultsForm.resx">
+      <DependentUpon>AnalyseResultsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssignSeating.resx">
+      <DependentUpon>AssignSeating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalculateBonusForm.resx">
+      <DependentUpon>CalculateBonusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterMarksForm.resx">
+      <DependentUpon>EnterMarksForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ViewResultsForm.resx">
+      <DependentUpon>ViewResultsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="Session5Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Session5Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Session5Model.edmx.diagram">
+      <DependentUpon>Session5Model.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\singapore_flag1.png" />
+    <None Include="Resources\myanmar3.png" />
+    <None Include="Resources\laos_newflg.png" />
+    <None Include="Resources\indonesia2.png" />
+    <None Include="Resources\flg_vietnam_new.png" />
+    <None Include="Resources\flg_thailand.png" />
+    <None Include="Resources\flg_philippine1.png" />
+    <None Include="Resources\flagmalaysia.png" />
+    <None Include="Resources\flag_cambodia.png" />
+    <None Include="Resources\brunei_flag.png" />
+    <Content Include="Session5Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Session5Model.Context.cs</LastGenOutput>
+      <DependentUpon>Session5Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Session5Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Session5Model.edmx</DependentUpon>
+      <LastGenOutput>Session5Model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
